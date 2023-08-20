@@ -3,6 +3,7 @@ use bevy_utils::{AHasher, RandomState};
 use serde::{Deserialize, Serialize};
 use std::{
     borrow::Cow,
+    fmt,
     hash::{BuildHasher, Hash, Hasher},
     path::{Path, PathBuf},
 };
@@ -13,6 +14,16 @@ use std::{
 pub struct AssetPath<'a> {
     path: Cow<'a, Path>,
     label: Option<Cow<'a, str>>,
+}
+
+impl<'a> fmt::Display for AssetPath<'a> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "{}",
+            self.label.as_ref().expect("Couldn't retrieve asset path")
+        )
+    }
 }
 
 impl<'a> AssetPath<'a> {
