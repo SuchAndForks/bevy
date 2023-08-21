@@ -55,16 +55,16 @@ fn move_anchor_point(
     time: Res<Time>,
 ) {
     let mut move_dir = Vec3::ZERO;
-    if keyboard_input.pressed(KeyCode::W) {
+    if keyboard_input.pressed(KeyCode::Up) {
         move_dir.y += 150.0 * time.delta_seconds();
     }
-    if keyboard_input.pressed(KeyCode::S) {
+    if keyboard_input.pressed(KeyCode::Down) {
         move_dir.y -= 150.0 * time.delta_seconds();
     }
-    if keyboard_input.pressed(KeyCode::A) {
+    if keyboard_input.pressed(KeyCode::Left) {
         move_dir.x -= 150.0 * time.delta_seconds();
     }
-    if keyboard_input.pressed(KeyCode::D) {
+    if keyboard_input.pressed(KeyCode::Right) {
         move_dir.x += 150.0 * time.delta_seconds();
     }
     for mut transform in &mut anchor_query {
@@ -154,7 +154,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>, mut config: Res
     ));
     commands.spawn(Text2dBundle {
         text: Text::from_section(
-            "Press WASD to move the anchor point.",
+            "Use the arrow keys to move the anchor point.",
             TextStyle {
                 font_size: 25.0,
                 ..default()
