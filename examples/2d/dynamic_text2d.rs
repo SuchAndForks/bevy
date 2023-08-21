@@ -1,3 +1,10 @@
+//! Demonstrates dynamic manipulation of the anchor point and position for text rendering.
+//!
+//! Note that this uses [`Text2dBundle`] to display text alongside your other entities in a 2D scene.
+//!
+//! For an example on how to render text as part of a user interface, independent from the world
+//! viewport, you may want to look at `2d/contributors.rs` or `ui/text.rs`.
+
 use bevy::prelude::*;
 use bevy_internal::sprite::Anchor;
 
