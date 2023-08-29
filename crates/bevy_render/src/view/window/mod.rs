@@ -167,7 +167,7 @@ fn extract_windows(
         }
     }
 
-    for closed_window in closed.iter() {
+    for closed_window in closed.read() {
         extracted_windows.remove(&closed_window.window);
     }
     // This lock will never block because `callbacks` is `pub(crate)` and this is the singular callsite where it's locked.

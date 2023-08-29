@@ -364,7 +364,7 @@ pub fn touch_screen_input_system(
 ) {
     touch_state.update();
 
-    for event in touch_input_events.iter() {
+    for event in touch_input_events.read() {
         touch_state.process_touch_event(event);
     }
 }
